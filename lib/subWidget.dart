@@ -8,7 +8,14 @@ class subWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text("welcome $day2  day to flutter web at $place"),
+        child: Text(
+          "welcome $day2  day to flutter web at $place",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+          textScaleFactor: 1.0,
+        ),
       ),
     );
   }
