@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newstart/subWidget.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -11,9 +12,11 @@ class homePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("welcome to flutter web"),
+      appBar: AppBar(
+        title: Text("Day 2 flutter"),
+        centerTitle: true,
       ),
+      body: subWidget(),
     );
   }
 }
