@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:newstart/utils/routes.dart';
 
 class sampleRoute extends StatelessWidget {
   @override
@@ -32,7 +33,7 @@ class sampleRoute extends StatelessWidget {
             height: 20,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: Column(
               children: [
                 TextField(
@@ -50,10 +51,16 @@ class sampleRoute extends StatelessWidget {
             height: 20,
           ),
           ElevatedButton(
+            style: TextButton.styleFrom(
+              shadowColor: Colors.amberAccent,
+              elevation: 5.0,
+              backgroundColor: Colors.blueGrey,
+              minimumSize: Size(120, 40),
+            ),
             onPressed: () {
-              print("button pressed");
+              Navigator.pushNamed(context, routes.homepage);
             },
-            child: Text("sign in"),
+            child: Text("Sign in"),
           )
         ],
       ),
