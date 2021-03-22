@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newstart/sampleRoute.dart';
 import 'package:newstart/subWidget.dart';
+import 'package:newstart/utils/routes.dart';
 
 void main() {
   runApp(
@@ -14,10 +15,10 @@ class homePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.blue),
-      initialRoute: "/sampleroute",
+      initialRoute: routes.loginpage,
       routes: {
-        "/": (context) => subWidget(),
-        "/sampleroute": (context) => sampleRoute()
+        routes.homepage: (context) => subWidget(),
+        routes.loginpage: (context) => sampleRoute()
       },
     );
   }
