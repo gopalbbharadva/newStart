@@ -12,6 +12,26 @@ class _sampleRouteState extends State<sampleRoute> {
 
   bool flag = false;
 
+  final _formKey = GlobalKey<FormState>();
+
+  TextEditingController uname = new TextEditingController();
+  TextEditingController pass = new TextEditingController();
+
+  void formSubmit(BuildContext context) async {
+    if (_formKey.currentState.validate()) {
+      setState(
+        () {
+          flag = true;
+        },
+      );
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, routes.homepage);
+      setState(() {
+        flag = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,38 +65,48 @@ class _sampleRouteState extends State<sampleRoute> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-              child: Column(
-                children: [
-                  TextField(
-                    onChanged: (value) {
-                      name = value;
-                      setState(() {});
-                    },
-                    decoration: InputDecoration(
-                        hintText: "Enter username:", labelText: "Username"),
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                        hintText: "Enter password:", labelText: "Password"),
-                  ),
-                ],
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: uname,
+                      validator: (value) {
+                        if (value.isEmpty)
+                          return "Please enter username!";
+                        else
+                          return null;
+                      },
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {});
+                      },
+                      decoration: InputDecoration(
+                          hintText: "Enter username:", labelText: "Username"),
+                    ),
+                    TextFormField(
+                      controller: pass,
+                      obscureText: true,
+                      validator: (value) {
+                        if (value.isEmpty)
+                          return "Please enter password!!";
+                        else
+                          return null;
+                      },
+                      decoration: InputDecoration(
+                          hintText: "Enter password:", labelText: "Password"),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(
               height: 20,
             ),
             InkWell(
-              onTap: () async {
-                setState(
-                  () {
-                    flag = true;
-                  },
-                );
-                await Future.delayed(Duration(seconds: 1));
-                Navigator.pushNamed(context, routes.homepage);
-              },
+              onTap: () => formSubmit(context),
               child: AnimatedContainer(
-                duration: Duration(milliseconds: 800),
+                duration: Duration(seconds: 1),
                 alignment: Alignment.center,
                 width: flag ? 60 : 130,
                 height: 40,
