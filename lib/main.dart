@@ -15,7 +15,7 @@ class homePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.blue),
-      initialRoute: routes.loginpage,
+      initialRoute: routes.homepage,
       routes: {
         routes.homepage: (context) => subWidget(),
         routes.loginpage: (context) => sampleRoute()
