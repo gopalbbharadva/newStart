@@ -14,7 +14,9 @@ class Items {
     this.color,
     this.image,
   });
+}
 
+class Product {
   static final items = [
     Items(
       id: "1",

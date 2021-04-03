@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
-  String imageurl = "https://picsum.photos/250?image=9";
+  final String imageurl = "https://picsum.photos/250?image=9";
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(
+    return Drawer(
         child: Container(
           height: 20,
           child: DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.amber,
+              color: Colors.red,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,11 +60,6 @@ class DrawerWidget extends StatelessWidget {
             ),
           ),
         ),
-      ),
-      appBar: AppBar(
-        title: Text("Drawer Widget"),
-        centerTitle: true,
-      ),
     );
   }
 }
